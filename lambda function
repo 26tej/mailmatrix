@@ -1,0 +1,52 @@
+import boto3
+import json
+
+# Initialize the SES client
+ses_client = boto3.client('ses', region_name='ap-south-1')  # Set the region
+
+# Dictionary to store exam names and their corresponding dates
+exam_dates = {
+    'UPSC Civil Services Exam': '26/10/2024',
+    'SSC Combined Graduate Level (CGL)': '27/10/2024',
+    'IBPS PO Exam': '28/10/2024',
+    'Railway Recruitment Board (RRB) NTPC': '29/10/2024',
+    'Indian Navy Recruitment Exam': '30/10/2024'
+}
+
+def lambda_handler(event, context):
+    students = event['students']  # Extract students list from event payload
+
+    for student in students:
+        name = student['name']
+        email = student['email']
+        exam = student['exam']
+
+        # Retrieve the exam date from the dictionary
+        exam_date = exam_dates.get(exam, 'Date not available')  # Default if exam not found
+
+        # Customize email content for each student with the exam date
+        subject = f"Upcoming Exam Notification: {exam}"
+        body_text = (
+            f"Dear {name},\n\n"
+            f"We are pleased to inform you that your exam, '{exam}', is scheduled on {exam_date}. "
+            "Please be prepared and review the necessary guidelines for the exam.\n\n"
+            "Best of luck!\n"
+            "Sincerely,\n"
+            "Examination Board"
+        )
+
+        # Send email via SES
+        response = ses_client.send_email(
+            Source='tejaboga26@gmail.com',  # Replace with your verified SES email
+            Destination={'ToAddresses': [email]},
+            Message={
+                'Subject': {'Data': subject},
+                'Body': {'Text': {'Data': body_text}}
+            }
+        )
+        print(f"Email sent to {email}: {response['MessageId']}")
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Emails sent successfully')
+    }
