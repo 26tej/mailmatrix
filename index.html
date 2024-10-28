@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduNotify</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('../static/bg.jpg'); /* Adjust the path as necessary */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+            margin: 0 24px;
+        }
+
+        .nav-links a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 22px; /* Increased font size */
+            font-weight: bold;
+            text-shadow: 1px 1px 3px black;
+            padding: 8px 12px; /* Added padding for better click area */
+            transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            background-color: rgba(255, 215, 0, 0.7); /* Added background color on hover */
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+            min-height: 100vh;
+        }
+
+        .content h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 8px black;
+        }
+
+        .content p {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 24px;
+            max-width: 800px;
+            box-shadow: 3px 3px 8px black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="title">EduNotify</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="{{ url_for('govexamlist') }}">List</a></li> <!-- Fixed the structure of the list item -->
+        </ul>
+    </div>
+
+    <div id="home" class="section">
+        <div class="content">
+            <h1>Welcome to the Government Exam Notifications</h1>
+            <p>Stay informed about the latest government exam schedules and important announcements. Register to receive timely notifications and never miss an important date!</p>
+        </div>
+    </div>
+
+    <div id="about" class="section">
+        <div class="content">
+            <h1>About Us</h1>
+            <p>
+                Our platform is dedicated to keeping students and aspirants updated with the latest government exam schedules, notifications, and results. 
+                By registering with us, you can receive personalized updates directly to your email, ensuring you're always informed about important dates and changes.
+            </p>
+            <p>
+                Join our community of aspirants and take the first step towards your future. Whether you're preparing for the UPSC Civil Services, SSC exams, banking exams, or any other government recruitment, we are here to support you every step of the way.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

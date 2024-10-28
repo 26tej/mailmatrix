@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduNotify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', Helvetica, Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('../static/images/mainbg.webp'); /* Add your image URL here */
+            background-size: cover; /* Makes sure the background covers the entire page */
+            background-position: center; /* Centers the background image */
+            background-attachment: fixed; /* Keeps the image fixed in place while scrolling */
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #0c1421;
+        }
+
+        .navbar a {
+            float: right;
+            font-size: 16px;
+            color: whitesmoke;
+            text-align: center;
+            padding: 16px 24px;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            color: #0c1421;
+            margin-bottom: 40px;
+        }
+
+        .exam-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .exam-card h2 {
+            color: #0c1421;
+            margin-bottom: 10px;
+        }
+
+        .exam-card p {
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .exam-card .eligibility {
+            font-weight: bold;
+            color: darkorange;
+        }
+
+        .exam-card .details {
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropbtn">EduNotify 
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="16" height="15">
+                    <polyline fill="none" points="5 8.5 12 15.5 19 8.5" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+                </svg>
+            </button>
+            <div class="dropdown-menu">
+                <a href="{{ url_for('index') }}">Home</a>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>List of Government Exams</h1>
+        
+        <div class="exam-card">
+            <h2>UPSC Civil Services Exam</h2>
+            <p class="eligibility">Eligibility: Graduation in any discipline</p>
+            <div class="details">
+                <p>The UPSC Civil Services Exam is conducted to recruit candidates for various civil services of the Government of India, including the Indian Administrative Service (IAS) and Indian Police Service (IPS).</p>
+                <p><strong>Exam Structure:</strong> The exam consists of three stages: Preliminary Exam, Main Exam, and Personality Test (Interview). The Prelims consists of two objective papers, while the Mains includes nine papers of descriptive type.</p>
+                <p><strong>Career Fields:</strong> Successful candidates can work in diverse roles within the government, including administrative, police, revenue services, and foreign services, contributing to governance and public administration.</p>
+            </div>
+        </div>
+
+        <div class="exam-card">
+            <h2>SSC Combined Graduate Level (CGL)</h2>
+            <p class="eligibility">Eligibility: Graduation in any discipline</p>
+            <div class="details">
+                <p>The SSC CGL exam is held for selecting candidates for various posts in ministries, departments, and organizations of the Government of India.</p>
+                <p><strong>Exam Structure:</strong> The CGL exam comprises four tiers: Tier I (Computer-Based Examination), Tier II (Descriptive Examination), Tier III (Skill Test), and Tier IV (Computer Proficiency Test or Document Verification).</p>
+                <p><strong>Career Fields:</strong> Candidates can be placed in roles such as Assistant Audit Officer, Inspector, and various administrative positions within government departments.</p>
+            </div>
+        </div>
+
+        <div class="exam-card">
+            <h2>IBPS PO Exam</h2>
+            <p class="eligibility">Eligibility: Graduation in any discipline</p>
+            <div class="details">
+                <p>The IBPS PO Exam is conducted for the recruitment of Probationary Officers in various public sector banks across India.</p>
+                <p><strong>Exam Structure:</strong> The exam consists of three phases: Preliminary Exam, Main Exam, and Interview. The Preliminary exam has objective questions, while the Main exam includes both objective and descriptive questions.</p>
+                <p><strong>Career Fields:</strong> Selected candidates work as Probationary Officers and can rise to managerial positions in banks, handling customer services, loans, and operations.</p>
+            </div>
+        </div>
+
+        <div class="exam-card">
+            <h2>Railway Recruitment Board (RRB) NTPC</h2>
+            <p class="eligibility">Eligibility: 10th/12th/Graduation (depends on the post)</p>
+            <div class="details">
+                <p>The RRB NTPC exam is conducted to recruit candidates for various posts in Indian Railways, including Non-Technical Popular Categories.</p>
+                <p><strong>Exam Structure:</strong> The selection process includes a Computer Based Test (CBT), followed by a Skill Test (where applicable), and Document Verification.</p>
+                <p><strong>Career Fields:</strong> Successful candidates may be placed in roles such as Clerk, Ticket Collector, and in various operational and administrative positions within the Indian Railways.</p>
+            </div>
+        </div>
+
+        <div class="exam-card">
+            <h2>Indian Navy Recruitment Exam</h2>
+            <p class="eligibility">Eligibility: 10th/12th/Graduation (depends on the post)</p>
+            <div class="details">
+                <p>The Indian Navy conducts recruitment exams for various positions, including sailors and officers, in the naval service.</p>
+                <p><strong>Exam Structure:</strong> The recruitment process typically includes a written examination, physical fitness test, and medical examination. For officer roles, an interview is also conducted.</p>
+                <p><strong>Career Fields:</strong> Candidates can serve in various capacities within the Navy, such as engineering, logistics, and naval architecture, playing vital roles in maritime defense.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
